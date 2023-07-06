@@ -1,0 +1,85 @@
+method: grid
+metric:
+  goal: minimize
+  name: negative
+parameters:
+  model_to_explain:
+    values:
+      - 'bert'
+  seed:
+    values:
+      - 42
+  epochs:
+    value: 8
+  loss_version:
+    value: 0
+  generation_index:
+    values:
+      #      - '-10'
+      - '-101'
+  #      - '-101234'
+  mean_loss:
+    values:
+      - 1
+  learning_rate:
+    values:
+      #      - 5e-8
+      #      - 5e-7
+      - 5e-6
+      #      - 1e-6
+      #      - 5e-5
+      #      - 1e-5
+      #      - 5e-4
+      #      - 1e-4
+      #      - 5e-5
+      #      - 0.00000001
+  temperature:
+    values:
+      #      - 0.05
+      - 0.1
+      #      - 0.2
+      #      - 0.1
+  #      - 1
+  treatment:
+    values:
+      - "food"
+      - "noise"
+      - "ambiance"
+      - "service"
+  tcf_cfc:
+    values:
+      #      - 0
+      #      - 1
+      #      - 5
+      - 1
+  #      - 2
+  tcf_pax:
+    values:
+      #      - 0
+      - 1
+      #      - 2
+      #      - 5
+  #      - 2
+  tcf_nax:
+    values:
+      #      - 0
+      - 0
+      #      - 2
+  #      - 2
+  pax_nax:
+    values:
+      - 0
+  #      - 1
+  #      - 2
+  pax_cfc:
+    values:
+      #      - 0
+      - 1
+  #      - 2
+  cfc_nax:
+    values:
+      #      - 0
+      - 0
+#      - 2
+program: train_wandb.py
+  
